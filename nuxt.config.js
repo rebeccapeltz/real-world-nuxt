@@ -18,7 +18,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#39b982' },
   /*
   ** Global CSS
   */
@@ -46,6 +46,12 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

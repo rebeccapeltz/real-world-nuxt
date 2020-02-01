@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Events</h1>
+
     <EventCard
       v-for="(event, index) in events"
       :key="index"
@@ -12,6 +13,7 @@
 <script>
 import EventCard from '@/components/EventCard.vue'
 import { mapState } from 'vuex'
+
 export default {
   head() {
     return {
@@ -21,19 +23,18 @@ export default {
   async fetch({ store, error }) {
     try {
       await store.dispatch('events/fetchEvents')
-      console.log(events)
     } catch (e) {
       error({
         statusCode: 503,
-        message: 'Unable to fetch events events at this time'
+        message: 'Unable to fetch events at this time. Please try again.'
       })
     }
   },
-  computed: mapState({
-    events: state => state.events.events
-  }),
   components: {
     EventCard
-  }
+  },
+  computed: mapState({
+    events: state => state.events.events
+  })
 }
 </script>

@@ -1,7 +1,9 @@
- <template>
-  <div>
+<template>
+<div>
     <div class="event-header">
-      <span class="eyebrow"> @{{ event.time }} on {{ event.date }} </span>
+      <span class="eyebrow">
+        @{{ event.time }} on {{ event.date }}
+      </span>
       <h1 class="title">
         {{ event.title }}
       </h1>
@@ -25,17 +27,13 @@
       </span>
     </h2>
     <ul class="list-group">
-      <li
-        v-for="(attendee, index) in event.attendees"
-        :key="index"
-        class="list-item"
-      >
+      <li v-for="(attendee, index) in event.attendees" :key="index" class="list-item">
         <b>{{ attendee.name }}</b>
       </li>
     </ul>
   </div>
 </template>
-    <script>
+<script>
 import { mapState } from 'vuex'
 export default {
   head() {
@@ -50,9 +48,9 @@ export default {
       ]
     }
   },
-  async fetch({ store, params, error }) {
+  async fetch({ store, error, params }) {
     try {
-      await store.dispatch('event/fetchEvent', params.id)
+      await store.dispatch('events/fetchEvent', params.id)
     } catch (e) {
       error({
         statusCode: 503,
@@ -65,6 +63,7 @@ export default {
   })
 }
 </script>
+
 <style scoped>
 .prompt-box {
   position: relative;

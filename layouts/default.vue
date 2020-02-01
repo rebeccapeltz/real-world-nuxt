@@ -8,21 +8,21 @@
 <script>
 import NavBar from '~/components/NavBar.vue'
 export default {
-  components: {
-    NavBar
-  },
-  head () {
+  head() {
     return {
-      titleTemplate: '%s - Real World Event',
+      titleTemplate: '%s - Real World Events',
       meta: [
         {
           hid: 'description',
           name: 'description',
           content:
-            'Where you an find all the events taking place in your neighborhood'
+            'Where you can find all the events taking place in your neighborhood'
         }
       ]
     }
+  },
+  components: {
+    NavBar
   }
 }
 </script>

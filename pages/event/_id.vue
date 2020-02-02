@@ -1,9 +1,7 @@
 <template>
-<div>
+  <div>
     <div class="event-header">
-      <span class="eyebrow">
-        @{{ event.time }} on {{ event.date }}
-      </span>
+      <span class="eyebrow"> @{{ event.time }} on {{ event.date }} </span>
       <h1 class="title">
         {{ event.title }}
       </h1>
@@ -27,7 +25,11 @@
       </span>
     </h2>
     <ul class="list-group">
-      <li v-for="(attendee, index) in event.attendees" :key="index" class="list-item">
+      <li
+        v-for="(attendee, index) in event.attendees"
+        :key="index"
+        class="list-item"
+      >
         <b>{{ attendee.name }}</b>
       </li>
     </ul>
@@ -48,6 +50,9 @@ export default {
       ]
     }
   },
+  computed: mapState({
+    event: state => state.events.event
+  }),
   async fetch({ store, error, params }) {
     try {
       await store.dispatch('events/fetchEvent', params.id)
@@ -57,10 +62,7 @@ export default {
         message: 'Unable to fetch event #' + params.id
       })
     }
-  },
-  computed: mapState({
-    event: state => state.events.event
-  })
+  }
 }
 </script>
 

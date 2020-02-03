@@ -23,6 +23,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 
 json-server --watch db.json
+## Universal Deployment
 
 https://serene-castle-47999.herokuapp.com/ | https://git.heroku.com/serene-castle-47999.git
 
@@ -33,4 +34,6 @@ rebeccapeltz@MacBook-Pro-2 real-world-nuxt % heroku config:set HOST=0.0.0.0
 
  heroku config:set NODE_ENV=production
  add to package.json "heroku-postbuild": "npm run build"
- 
+
+## Static Deployment
+
